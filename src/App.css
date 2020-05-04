@@ -8,3 +8,32 @@
    background-color: rgb(245, 237, 158);
    text-align: center;
  }
+
+ .pokemon-item {
+  height: 400px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(97, 161, 240, 0.824);
+  text-align: center;
+  margin: 40px;
+  border-radius: 10px;
+  border: 1px dotted black;
+  box-shadow: 3px 3px 3px rgba(77, 77, 77, 0.728);
+}
+
+img {
+  width: 230px;
+  height: 230px;
+  object-fit: cover;
+  margin: 20px;
+}
+
+h2 {
+  margin: 15px;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+}
