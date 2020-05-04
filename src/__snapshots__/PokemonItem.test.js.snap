@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders learn react link 1`] = `
+<ul>
+  <li
+    className="pokemon-item"
+  >
+    <h2
+      className="pokemon-name"
+    >
+      CHARACTER
+    </h2>
+    <img
+      alt="character"
+      className="pokemon-character"
+      src="some image"
+    />
+    <p
+      className="pokemon-type"
+    >
+      Type = 
+    </p>
+    <p
+      className="pokemon-attack"
+    >
+      Attack = 
+    </p>
+    <p
+      className="pokemon-defense"
+    >
+      Defense =
+    </p>
+  </li>
+</ul>
+`;
