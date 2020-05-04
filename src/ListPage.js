@@ -17,7 +17,6 @@ export default class ListPage extends Component {
 
     handleClick = async () => {
         const fetchedData = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.searchQuery}`);
-        console.log(fetchedData);
         this.setState({ data: fetchedData.body.results });
     }
 

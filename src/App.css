@@ -37,3 +37,13 @@ ul {
   display: flex;
   flex-wrap: wrap;
 }
+
+input {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+button {
+  padding: 5px;
+  border-radius: 5px;
+}
