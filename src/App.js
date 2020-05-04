@@ -8,8 +8,8 @@ import {
     BrowserRouter as Router, 
     Route, 
     Switch,
-    Link,
-    useParams
+    // Link,
+    // useParams
 } from 'react-router-dom';
 
 export default class App extends Component {

@@ -4,37 +4,43 @@ import request from 'superagent';
 
 export default class ListPage extends Component {
 
+//initializes state
     state = {
         data: [],
         searchQuery: '',
         type: '',
         attack: 0,
         defense: 0,
-        statSelection: 'attack'
+        statSelection: 'attack',
+        textSelection: 'name'
     }
 
+    //searches by name or type
     handleChange= (e) => {
         const value = e.target.value;
         this.setState({ searchQuery: value, type: value });
     }
 
-    handleClick = async () => {
-        const fetchedData = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.searchQuery}&type=${this.state.type_1}`);
+    handleTextDropdown = (e) => {
+        const value = e.target.value;
+        this.setState({ textSelection: value });
+    }
 
+    handleClick = async () => {
+        const fetchedData = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?${this.state.textSelection}=${this.state.searchQuery}`);
+        //still grabbing everything.  tried replacing searchQuery with a few other things to no avail, either grabs it all or nothing.  Works with type but not with name
+        console.log(fetchedData)
         this.setState({ data: fetchedData.body.results });
     }
 
     //searches by attack or defense value
     handleAttackDefenseChange = (e) => {
         const value = e.target.value;
-        
         this.setState({ attack: value, defense: value });
-        
     }
 
     handleStatDropdown = (e) => {
         const value = e.target.value;
-        
         this.setState({ statSelection: value })
     }
   
@@ -49,7 +55,7 @@ export default class ListPage extends Component {
             <div>
                 <div className="dropdown-name-type">
                     <label>Choose Name or Type:  </label>
-                    <select className="name-type">
+                    <select className="name-type" onChange={this.handleTextDropdown}>
                         <option value="name">Name</option>
                         <option value="type">Type</option>
                     </select>
