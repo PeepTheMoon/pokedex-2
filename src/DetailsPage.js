@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
 import request from 'superagent';
+import PokemonItem from './PokemonItem.js';
 
 export default class DetailsPage extends Component {
     state = {
-        character: {}
+        character: {pokemon: ''}
     }
     async componentDidMount() {
         const fetchedData = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.props.match.params.name}`);
-        console.log(fetchedData);
-        this.setState({ character: fetchedData.body.result });
+        console.log(fetchedData)
+        this.setState({ character: fetchedData.body.results[0] });
     }
 
     render() {
+        console.log(this.state.character);
+        console.log(this.props.match.params);
         return (
             <div>
-                Yo Yo helloooo
+                <PokemonItem character={this.state.character}/>
             </div>
         )
     }

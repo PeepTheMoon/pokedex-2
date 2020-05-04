@@ -30,7 +30,7 @@ export default class ListPage extends Component {
     }
   
     handleAttackClick = async () => {
-        const fetchedAttack = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.attack}`) ;
+        const fetchedAttack = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?attack=${this.state.attack}`) ;
         console.log(fetchedAttack)
         this.setState({ data: fetchedAttack.body.results })
     }
@@ -82,13 +82,11 @@ export default class ListPage extends Component {
                     </ul> 
                 </div>
                 <div className="dropdown">
-                    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-                        <div className="dropdown-content">
-                            <a href="#">Name</a>
-                            <a href="#">Type</a>
-                            <a href="#">Attack</a>
-                            <a href="#">Defense</a>
-                        </div>
+                    <button onClick="myFunction()" class="dropbtn">Dropdown</button>
+                    <select className="attack-defense">
+                        <option value="attack">Attack</option>
+                        <option value="defense">Defense</option>
+                    </select>
                 </div>
             </div>
         )
