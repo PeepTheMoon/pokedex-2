@@ -1,5 +1,10 @@
-I need help with filtering my pokemon data by the attack search.
+PokemonItem page only renders a type when I specify type_1 or type_2
 
-I need help with getting started on sorting my pokemon data with a dropdown menu- forEach?
+I tried to do my name or type search and it broke!  I modeled it after the attack or defense and I'm not sure what I'm overlooking. Now nothing renders
 
-I'm receiving an error on my details page.  It can't read the pokemon property for some reason, but when I console log the data it shows up, just won't render to the page.
+color cording based on type?
+
+move searchbar code into it's own component with handleChange and this.props.handleChange
+
+in render, put  a loading spinner
+
