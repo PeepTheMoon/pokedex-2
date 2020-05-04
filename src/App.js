@@ -1,6 +1,6 @@
 import ListPage from './ListPage.js';
-// import Header from './Header.js';
-// import Footer from './Footer.js';
+import Header from './Header.js';
+import Footer from './Footer.js';
 import DetailsPage from './DetailsPage.js';
 import './App.css';
 import React, { Component } from 'react'
@@ -16,6 +16,9 @@ export default class App extends Component {
     render() {
         return (
             <div>
+              <div>
+                <Header/>
+              </div>
                 <Router>
                     <Switch>
                         <Route 
@@ -30,6 +33,10 @@ export default class App extends Component {
                         />
                     </Switch>
                 </Router>
+            
+              <div>
+                <Footer/>
+              </div>
             </div>
         )
     }

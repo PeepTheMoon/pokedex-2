@@ -12,8 +12,26 @@ export default class ListPage extends Component {
         attack: 0,
         defense: 0,
         statSelection: 'attack',
-        textSelection: 'name'
+        textSelection: 'pokemon',
+        page: 1
     }
+
+    async componentDidMount(){
+        const searchParams = new URLSearchParams(window.location.search);
+        const query = searchParams.get('search');
+  
+        this.setState( {searchQuery: query});
+        
+        if (query){
+          let page = 1;
+          if (searchParams.get('page')){
+            page = searchParams.get('page');
+          }
+        const response = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?${query}&page=${page}`)
+        const results = response.body.results;
+        this.setState({ data: results })  
+      }
+      }
 
     //searches by name or type
     handleChange= (e) => {
@@ -27,9 +45,9 @@ export default class ListPage extends Component {
     }
 
     handleClick = async () => {
+        
         const fetchedData = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?${this.state.textSelection}=${this.state.searchQuery}`);
-        //still grabbing everything.  tried replacing searchQuery with a few other things to no avail, either grabs it all or nothing.  Works with type but not with name
-        console.log(fetchedData)
+    
         this.setState({ data: fetchedData.body.results });
     }
 
@@ -50,13 +68,36 @@ export default class ListPage extends Component {
         this.setState({ data: fetchedAttackDefense.body.results })
     }
 
+//allows user to view the next page of results
+    toNextPage = async () => {
+
+        const nextPage = this.state.page + 1; 
+        this.setState({ page: nextPage });
+
+        const response = await request.get(this.state.info.next);
+        const results = response.body.results;
+        this.setState({ data: results })
+    }
+
+    //allows user to view the previous page of results
+    toPreviousPage = async () => {
+        const previousPage = this.state.page - 1;  
+        this.setState({ page: previousPage }) 
+      
+        const response = await request.get(this.state.info.prev);
+        const results = response.body.results;
+        this.setState({ characters: results })
+  
+      }
+
     render() {
         return (
             <div>
+
                 <div className="dropdown-name-type">
                     <label>Choose Name or Type:  </label>
                     <select className="name-type" onChange={this.handleTextDropdown}>
-                        <option value="name">Name</option>
+                        <option value="pokemon">Name</option>
                         <option value="type">Type</option>
                     </select>
                 </div>
@@ -64,17 +105,8 @@ export default class ListPage extends Component {
                     <label>Search by Name or Type:  </label>
                     <input className="pokemon-search" onChange={this.handleChange} placeholder="Enter Name or Type"/>
                     <button onClick={this.handleClick}>Search</button>
-                    <ul>
-                        {
-                            this.state.data.map((character) => {
-                                return <div className="pokemon-card">
-                                    <PokemonItem character={character}/>
-                                    </div>
-                            })
-                        } 
-                    </ul>
-                </div>
-                <div className="dropdown-attack-defense">
+
+                    <div className="dropdown-attack-defense">
                     <label>Choose Attack or Defense:  </label>
                     <select className="attack-defense" onChange={this.handleStatDropdown}>
                         <option value="attack">Attack</option>
@@ -85,17 +117,23 @@ export default class ListPage extends Component {
                     <label>Search by Attack or Defense Value:  </label>
                     <input type="number" min="0" max="100" onChange={this.handleAttackDefenseChange} placeholder="Num"/>
                     <button onClick={this.handleAttackDefenseClick}>Search</button>
+
+                </div>
                     <ul>
                         {
                             this.state.data.map((character) => {
-                                return <div className="attack-defense-result">
+                                return <div className="pokemon-card">
                                     <PokemonItem character={character}/>
                                     </div>
                             })
-                        
                         } 
-                    </ul> 
+                    </ul>
                 </div>
+
+                <button onClick={this.toPreviousPage}>Previous</button>
+              
+                <button onClick={this.toNextPage}>Next</button>
+
             </div>
         )
     }

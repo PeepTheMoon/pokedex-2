@@ -5,7 +5,7 @@ export default class PokemonItem extends Component {
     render() {
         return (
                 <ul>
-                    <li className="pokemon-item">
+                    <li className={`pokemon-item ${this.props.character.type_1}`}>
                         <Link to={`/character/${this.props.character.pokemon}`}>
                         <h2 className="pokemon-name">{this.props.character.pokemon.toUpperCase()}</h2>
                         <img className="pokemon-character" alt={this.props.character.pokemon} src={this.props.character.url_image}/> </Link>

@@ -1,10 +1,18 @@
+Quetsions:
+
 PokemonItem page only renders a type when I specify type_1 or type_2
 
-I tried to do my name or type search and it broke!  I modeled it after the attack or defense and I'm not sure what I'm overlooking. Now nothing renders
+
+
+
+To do:
 
 color cording based on type?
+use a classname and try this in css.
 
 move searchbar code into it's own component with handleChange and this.props.handleChange
 
-in render, put  a loading spinner
+in render, put a loading spinner
+
+Set up one more test
 
