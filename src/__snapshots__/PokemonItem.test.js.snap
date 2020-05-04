@@ -19,16 +19,19 @@ exports[`renders learn react link 1`] = `
       className="pokemon-type"
     >
       Type = 
+      some type
     </p>
     <p
       className="pokemon-attack"
     >
       Attack = 
+      0
     </p>
     <p
       className="pokemon-defense"
     >
       Defense =
+      0
     </p>
   </li>
 </ul>
