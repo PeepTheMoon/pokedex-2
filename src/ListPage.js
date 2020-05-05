@@ -82,7 +82,7 @@ export default class ListPage extends Component {
 
         const response = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?${this.state.statSelection}=${this.state.attack}&page=${nextPage}`) ;
         const results = response.body.results;
-        this.setState({ data: results })
+        this.setState({ data: results });
     }
 
     //allows user to view the previous page of results
