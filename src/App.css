@@ -9,6 +9,12 @@
    text-align: center;
  }
 
+ .header {
+   background-color:  rgba(71, 22, 206, 0.664);
+   margin-bottom: 15px;
+   padding: 10px;
+ }
+
  .pokemon-item {
   height: 400px;
   width: 300px;
@@ -20,6 +26,12 @@
   border-radius: 10px;
   border: 1px dotted black;
   box-shadow: 3px 3px 3px rgba(77, 77, 77, 0.728);
+}
+
+.footer {
+  background-color:  rgba(71, 22, 206, 0.541);
+  margin-top: 15px;
+  padding: 10px;
 }
 
 img {
@@ -50,4 +62,76 @@ button {
   background-color: rgb(238, 154, 227);
   border: 1px solid black;
   box-shadow: 1px 1px 1px rgba(77, 77, 77, 0.728);
+}
+
+.water {
+  background-color: rgb(50, 50, 173);
+}
+
+.fire {
+  background-color: rgb(226, 73, 73);
+}
+
+.bug {
+  background-color: rgb(73, 153, 93);
+}
+
+.dark {
+  background-color: rgb(33, 41, 35);
+}
+
+.dragon {
+  background-color: rgb(4, 39, 13);
+}
+
+.electric {
+  background-color: rgb(178, 241, 59);
+}
+
+.fairy {
+  background-color: rgb(114, 73, 153);
+}
+
+.fighting {
+  background-color: rgb(153, 98, 73);
+}
+
+.flying {
+  background-color: rgb(73, 148, 153);
+}
+
+.ghost {
+  background-color: rgb(220, 230, 222);
+}
+
+.grass {
+  background-color: rgb(16, 148, 49);
+}
+
+.ground {
+  background-color: rgb(58, 59, 58);
+}
+
+.ice {
+  background-color: rgb(125, 202, 238);
+}
+
+.normal {
+  background-color: rgb(160, 190, 163);
+}
+
+.poison {
+  background-color: rgb(170, 20, 70);
+}
+
+.psychic {
+  background-color: rgb(238, 22, 202);
+}
+
+.rock {
+  background-color: rgb(73, 79, 88);
+}
+
+.steel {
+  background-color: rgb(44, 57, 83);
 }

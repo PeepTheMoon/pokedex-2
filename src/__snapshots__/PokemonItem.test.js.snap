@@ -3,18 +3,23 @@
 exports[`renders learn react link 1`] = `
 <ul>
   <li
-    className="pokemon-item"
+    className="pokemon-item some type"
   >
-    <h2
-      className="pokemon-name"
+    <Link
+      to="/character/character"
     >
-      CHARACTER
-    </h2>
-    <img
-      alt="character"
-      className="pokemon-character"
-      src="some image"
-    />
+      <h2
+        className="pokemon-name"
+      >
+        CHARACTER
+      </h2>
+      <img
+        alt="character"
+        className="pokemon-character"
+        src="some image"
+      />
+       
+    </Link>
     <p
       className="pokemon-type"
     >

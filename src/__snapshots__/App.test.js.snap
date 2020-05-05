@@ -1,11 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders learn react link 1`] = `
-<div
-  className="PokemonApp"
->
-  <Header />
-  <ListPage />
-  <Footer />
+<div>
+  <div>
+    <Header />
+  </div>
+  <BrowserRouter>
+    <Switch>
+      <Route
+        exact={true}
+        path="/"
+        render={[Function]}
+      />
+      <Route
+        exact={true}
+        path="/character/:name"
+        render={[Function]}
+      />
+    </Switch>
+  </BrowserRouter>
+  <div>
+    <Footer />
+  </div>
 </div>
 `;

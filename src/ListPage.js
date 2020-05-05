@@ -24,12 +24,18 @@ export default class ListPage extends Component {
         
         if (query){
           let page = 1;
+
           if (searchParams.get('page')){
             page = searchParams.get('page');
+            
           }
-        const response = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?${query}&page=${page}`)
+        const response = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${query}&page=${page}`)
         const results = response.body.results;
         this.setState({ data: results })  
+      } else {
+          const response = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex`);
+          const results = response.body.results;
+          this.setState({ data: results })
       }
       }
 
