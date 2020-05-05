@@ -1,6 +1,5 @@
 {
   "name": "pokedex-2",
-  "homepage": "http://peepthemoonstudios.github.io/pokedex-2",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
