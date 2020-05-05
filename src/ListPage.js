@@ -44,16 +44,16 @@ export default class ListPage extends Component {
         const value = e.target.value;
         this.setState({ searchQuery: value, type: value });
     }
-
+//event handler to get the value of the dropdown selection and sets state of selection to that value
     handleTextDropdown = (e) => {
         const value = e.target.value;
         this.setState({ textSelection: value });
     }
 
     handleClick = async () => {
-        
+        //sends the value of the input to the api and waits for the returned data
         const fetchedData = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?${this.state.textSelection}=${this.state.searchQuery}`);
-    
+    //sets the state to the returned data and to the body of the page
         this.setState({ data: fetchedData.body.results });
     }
 
@@ -62,15 +62,15 @@ export default class ListPage extends Component {
         const value = e.target.value;
         this.setState({ attack: value, defense: value });
     }
-
+//event handler to get the value of the dropdown selection and sets state of selection to that value
     handleStatDropdown = (e) => {
         const value = e.target.value;
         this.setState({ statSelection: value })
     }
-  
+  //sends the value of the input to the api and waits for the returned data
     handleAttackDefenseClick = async () => {
         const fetchedAttackDefense = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?${this.state.statSelection}=${this.state.attack}`) ;
-
+//sets the state to the returned data and to the body of the page
         this.setState({ data: fetchedAttackDefense.body.results })
     }
 
@@ -144,3 +144,7 @@ export default class ListPage extends Component {
         )
     }
 }
+// total pages / 20 
+//response.body.count
+// if next page is > than 801 / 20, there is no next page.
+

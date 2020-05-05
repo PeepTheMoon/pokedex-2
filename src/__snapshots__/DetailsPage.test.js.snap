@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders single pokemon item details 1`] = `
+<div>
+  <PokemonItem
+    character={
+      Object {
+        "pokemon": "",
+      }
+    }
+  />
+</div>
+`;
