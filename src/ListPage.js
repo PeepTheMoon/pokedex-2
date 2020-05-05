@@ -18,9 +18,9 @@ export default class ListPage extends Component {
 
     async componentDidMount(){
         const searchParams = new URLSearchParams(window.location.search);
-        const query = searchParams.get('search');
+        const query = searchParams.get('search') || '';
   
-        this.setState( {searchQuery: query});
+        this.setState({ searchQuery: query });
         
         if (query){
           let page = 1;
@@ -80,7 +80,7 @@ export default class ListPage extends Component {
         const nextPage = this.state.page + 1; 
         this.setState({ page: nextPage });
 
-        const response = await request.get(this.state.info.next);
+        const response = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?${this.state.statSelection}=${this.state.attack}&page=${nextPage}`) ;
         const results = response.body.results;
         this.setState({ data: results })
     }
@@ -90,9 +90,9 @@ export default class ListPage extends Component {
         const previousPage = this.state.page - 1;  
         this.setState({ page: previousPage }) 
       
-        const response = await request.get(this.state.info.prev);
+        const response = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?${this.state.statSelection}=${this.state.attack}&page=${previousPage}`) ;
         const results = response.body.results;
-        this.setState({ characters: results })
+        this.setState({ data: results })
   
       }
 
@@ -136,7 +136,7 @@ export default class ListPage extends Component {
                     </ul>
                 </div>
 
-                <button onClick={this.toPreviousPage}>Previous</button>
+                {this.state.page > 1 && <button onClick={this.toPreviousPage}>Previous</button>}
               
                 <button onClick={this.toNextPage}>Next</button>
 
