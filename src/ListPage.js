@@ -20,7 +20,6 @@ export default class ListPage extends Component {
     async componentDidMount(){
         const searchParams = new URLSearchParams(window.location.search);
         const query = searchParams.get('search') || '';
-  
         this.setState({ searchQuery: query });
         
         if (query){
