@@ -40,15 +40,29 @@ export default class ListPage extends Component {
         }
       }
 
+      handlePageChange= (e) => {
+        const value = e.target.value;
+        this.setState({ searchQuery: value, page: value });
+    }
+
+    handleClick = async () => {
+        //sends the value of the input to the api and waits for the returned data
+        const fetchedData = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?=${this.state.searchQuery}=${this.state.data}`);
+        const page = fetchedData.page;
+        //sets the state to the returned data and to the body of the page
+        
+        this.setState({ data: fetchedData.body.results, page: page });
+    }
+
           //allows user to view the next page of results
     toNextPage = async () => {
 
         const nextPage = this.state.page + 1; 
-        this.setState({ page: nextPage });
 
-        const response = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?${this.state.statSelection}=${this.state.attack}&page=${nextPage}`) ;
+        const response = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?${this.state.searchQuery}=${this.state.data}&page=${nextPage}`) ;
+
         const results = response.body.results;
-        this.setState({ data: results });
+        this.setState({ data: results, page: nextPage });
     }
 
     //allows user to view the previous page of results
@@ -56,7 +70,8 @@ export default class ListPage extends Component {
         const previousPage = this.state.page - 1;  
         this.setState({ page: previousPage }) 
       
-        const response = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?${this.state.statSelection}=${this.state.attack}&page=${previousPage}`) ;
+        const response = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?${this.state.searchQuery}=${this.state.data}&page=${previousPage}`) ;
+
         const results = response.body.results;
         this.setState({ data: results })
       }
