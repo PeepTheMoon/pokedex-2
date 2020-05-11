@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders single pokemon item details 1`] = `
+<div>
+  <div
+    className="dropdown-attack-defense"
+  >
+    <label>
+      Choose Attack or Defense:  
+    </label>
+    <select
+      className="attack-defense"
+      onChange={[Function]}
+    >
+      <option
+        value="attack"
+      >
+        Attack
+      </option>
+      <option
+        value="defense"
+      >
+        Defense
+      </option>
+    </select>
+  </div>
+  <div
+    className="value-input"
+  >
+    <label>
+      Search by Attack or Defense Value:  
+    </label>
+    <input
+      max="100"
+      min="0"
+      onChange={[Function]}
+      placeholder="Num"
+      type="number"
+    />
+    <button
+      onClick={[Function]}
+    >
+      Search
+    </button>
+  </div>
+  <div
+    className="dropdown-name-type"
+  >
+    <label>
+      Choose Name or Type:  
+    </label>
+    <select
+      className="name-type"
+      onChange={[Function]}
+    >
+      <option
+        value="pokemon"
+      >
+        Name
+      </option>
+      <option
+        value="type"
+      >
+        Type
+      </option>
+    </select>
+  </div>
+  <div
+    className="word-search"
+  >
+    <label>
+      Search by Name or Type:  
+    </label>
+    <input
+      className="pokemon-search"
+      onChange={[Function]}
+      placeholder="Enter Name or Type"
+    />
+    <button
+      onClick={[Function]}
+    >
+      Search
+    </button>
+  </div>
+  <ul />
+</div>
+`;

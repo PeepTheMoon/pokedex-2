@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders single pokemon item details 1`] = `
+<div
+  className="footer"
+>
+  This iteration of Pokedex was made by Rachel Donahue @PeepTheMoon on GitHub
+</div>
+`;

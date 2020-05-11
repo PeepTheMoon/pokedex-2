@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders single pokemon item details 1`] = `
+<div
+  className="header"
+>
+  <h1
+    className="header-h1"
+  >
+    Welcome to the Pokedex!
+  </h1>
+  <h2
+    className="header-h2"
+  >
+    Search for Pokemon based on their name, type, attack, and defense.
+  </h2>
+</div>
+`;
